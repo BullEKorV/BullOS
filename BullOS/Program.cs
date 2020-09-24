@@ -74,19 +74,19 @@ namespace BullOS
                 }
                 passwords.Add(tempPass);
                 word.Add("");
-                //Console.Clear();
+                Console.Clear();
             }
 
             void loginAccount()
             {
                 //check for username
-                //Console.Clear();
+                Console.Clear();
                 Console.Write("Enter your username: ");
                 string username = Console.ReadLine().ToLower();
                 while (!usernames.Contains(username))
                 {
                     if (username.ToLower().Contains("!quit")) break;
-                    //Console.Clear();
+                    Console.Clear();
                     Console.WriteLine($"The account {username} does not exist");
                     Console.Write("Enter an existing username or type \"!quit\" to exit: ");
                     username = Console.ReadLine().ToLower();
@@ -99,7 +99,7 @@ namespace BullOS
                     string password = Console.ReadLine();
                     while (usernames.IndexOf(username) != passwords.IndexOf(password) && !(password.ToLower().Contains("!quit")))
                     {
-                        //Console.Clear();
+                        Console.Clear();
                         Console.WriteLine("You entered a wrong password\n");
                         Console.Write("Enter another password or type \"!quit\" to exit: ");
                         password = Console.ReadLine();
@@ -108,7 +108,7 @@ namespace BullOS
                     if (usernames.IndexOf(username) == passwords.IndexOf(password))
                     {
                         user = usernames.IndexOf(username);
-                        //Console.Clear();
+                        Console.Clear();
                         Console.WriteLine($"Welcome {UppercaseFirst(username)}");
                         loggedIn = true;
                         while (loggedIn) account();
@@ -124,6 +124,7 @@ namespace BullOS
                 {
                     case "!logout":
                         loggedIn = false;
+                        Console.Clear();
                         break;
                     case "!help":
                         Console.Write("Commands available: ");
